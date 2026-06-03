@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Bebas Neue", "Impact", sans-serif;
+  --font-ui:      "Barlow Condensed", sans-serif;
+  --font-body:    "DM Sans", sans-serif;
+
+  /* Mavado Gully Side — aged gold on deep charcoal */
+  --color-void:     #080808;
+  --color-night:    #0C0C0C;
+  --color-card:     #141414;
+  --color-wire:     #2A2A2A;
+  --color-gold:     #C9A84C;
+  --color-goldL:    #E8C97A;
+  --color-gold-dim: rgba(201,168,76,0.10);
+  --color-cream:    #EDE8DF;
+  --color-muted:    rgba(237,232,223,0.50);
+  --color-dim:      rgba(237,232,223,0.22);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { font-size: 17px; }
+
+html, body, #root {
+  height: 100%;
+  background: #080808;
+  color: #EDE8DF;
+  -webkit-font-smoothing: antialiased;
+}
+
+.gold-glow {
+  text-shadow: 0 0 30px rgba(201,168,76,0.5), 0 0 80px rgba(201,168,76,0.2);
+}
