@@ -5,31 +5,67 @@
   --font-display: "Bebas Neue", "Impact", sans-serif;
   --font-ui:      "Barlow Condensed", sans-serif;
   --font-body:    "DM Sans", sans-serif;
-
-  /* Mavado Gully Side — aged gold on deep charcoal */
-  --color-void:     #080808;
-  --color-night:    #0C0C0C;
-  --color-card:     #141414;
-  --color-wire:     #2A2A2A;
-  --color-gold:     #C9A84C;
-  --color-goldL:    #E8C97A;
-  --color-gold-dim: rgba(201,168,76,0.10);
-  --color-cream:    #EDE8DF;
-  --color-muted:    rgba(237,232,223,0.50);
-  --color-dim:      rgba(237,232,223,0.22);
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
-
 html { font-size: 17px; }
 
 html, body, #root {
   height: 100%;
-  background: #080808;
-  color: #EDE8DF;
+  background: #14150E;
+  color: #DDD8C4;
   -webkit-font-smoothing: antialiased;
+  overflow: hidden;
 }
 
-.gold-glow {
-  text-shadow: 0 0 30px rgba(201,168,76,0.5), 0 0 80px rgba(201,168,76,0.2);
+/* Scanline overlay */
+.scanlines::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 3px,
+    rgba(0,0,0,0.06) 3px,
+    rgba(0,0,0,0.06) 4px
+  );
+  pointer-events: none;
+  z-index: 9998;
 }
+
+@keyframes dropIn {
+  from {
+    opacity: 0;
+    transform: translateY(-12px) scaleY(0.92);
+    filter: blur(2px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scaleY(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes itemReveal {
+  from { opacity: 0; transform: translateX(-8px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.2; }
+}
+
+@keyframes loadBar {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+
+.blink { animation: blink 1s ease-in-out infinite; }
+.drop-in { animation: dropIn 0.22s cubic-bezier(0.25,0.46,0.45,0.94) forwards; }
