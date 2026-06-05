@@ -69,3 +69,9 @@ html, body, #root {
 
 .blink { animation: blink 1s ease-in-out infinite; }
 .drop-in { animation: dropIn 0.22s cubic-bezier(0.25,0.46,0.45,0.94) forwards; }
+
+@keyframes gtaSpin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.gta-spin { animation: gtaSpin 0.8s linear infinite; }
